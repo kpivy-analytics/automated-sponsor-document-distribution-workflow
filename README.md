@@ -17,26 +17,28 @@ Project sponsor communications required staff to manually identify recipients, p
 
 ## Solution
 
-A Power Automate workflow was developed to automate sponsor document distribution using SharePoint Lists, SharePoint Document Libraries, and Outlook. The workflow retrieves sponsor information from a SharePoint List, processes each sponsor record individually, and sends customized emails with the required attachments. The solution standardizes communications, reduces manual effort, and creates a repeatable process that can be maintained by future staff.
+A Power Automate workflow was developed to automate sponsor document distribution using an Excel table stored in SharePoint, SharePoint document libraries, and Outlook. The workflow retrieves sponsor information from the Excel table, processes each sponsor record individually, identifies the appropriate sponsor-specific workbook using the WorkbookFileName field, retrieves the workbook from a designated SharePoint folder, and sends customized emails with both sponsor-specific and standard CAPER attachments. The solution standardizes communications, reduces manual effort, minimizes the risk of distribution errors, and creates a repeatable process that can be maintained by future staff.
 
 ## Technologies Used
 
-- Power Automate
-- SharePoint Lists
+- Microsoft Power Automate
+- Microsoft Excel
 - SharePoint Document Libraries
 - Microsoft Outlook
-- Process Documentation (OneNote)
+- OneNote
 - GitHub
 
 ## Workflow Process
 
 1. User manually starts the workflow.
-2. Power Automate retrieves sponsor records from a SharePoint List.
+2. Power Automate retrieves sponsor records from an Excel table stored in SharePoint.
 3. The workflow processes each sponsor record using an Apply to Each loop.
-4. Sponsor-specific information is inserted into the email using dynamic content.
-5. Required documents are attached.
-6. Outlook sends the email to the sponsor.
-7. Distribution status can be tracked through the SharePoint List and Power Automate run history.
+4. The WorkbookFileName field is used to identify the sponsor-specific workbook stored in a designated SharePoint folder.
+5. Power Automate retrieves the sponsor-specific workbook.
+6. Standard CAPER documents are retrieved and attached.
+7. Sponsor-specific information is inserted into the email using dynamic content from the Excel table.
+8. Outlook sends the email to the sponsor.
+9. Distribution status can be tracked through the Excel table and Power Automate run history.
 
 ## Results
 
